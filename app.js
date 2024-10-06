@@ -105,7 +105,7 @@ while (partyPokemonTypes.length < 4) {
     availablePokemonTypes.splice(newTypeIdx,1)
 }
 
-console.log("You're going to have "+partyPokemonTypes.join(', ')+' type pokemon!')
+console.log("You're going to have", partyPokemonTypes.join(', ')+'type pokemon!')
 
 for (let i=1; i<partyPokemonTypes.length; i++) {
     let possiblePartyMembers = []
