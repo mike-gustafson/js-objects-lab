@@ -76,14 +76,9 @@ game.party.findTypes()
 game.pokemon.findTypes()
 console.log(`Greetings trainer!  You have chosen ${game.party.pokemon[0].name} to accompany you on your adventure!`)
 console.log("")
-
-// create an array of all the types of pokemon. Array will be kept in the pokemon object.
-// create an array of all the types of pokemon in the party.  this is a function that can be reran whenever needed
 game.party.findTypes()
 console.log(`There are pokemon of the following type in the world: ${game.pokemon.types.join(', ')} types`)
 console.log(`You already have ${game.party.types.join(', ')} in your party so we'll find ${(4 - game.party.pokemon.length)} new types for you.`)
-
-// create list of availiable pokemon types that are NOT already in the party, this will be a list of unique values
 let availablePokemonTypes = game.pokemon.types
 game.party.types.forEach(element => {
     for (let i=0; i<availablePokemonTypes.length; i++) {

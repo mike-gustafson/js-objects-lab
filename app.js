@@ -164,8 +164,7 @@ console.log(starter, "is feeling weird.  He's Evolving!!!")
 
 for (let i=0; i<pokemon.length; i++) {
     if (pokemon[i].number === game.party[0].number) {
-        game.party.shift()
-        game.party.unshift(pokemon[i+1])
+        game.party.splice(0, 1, pokemon[i + 1]);
         break
     }
 }
