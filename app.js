@@ -157,17 +157,13 @@ with an array of objects, the splice() array method is ideal for replacing one e
 
 Solve Exercise 7 here:
 */
-
-let starter = game.party[0].name
-
+const starter = game.party[0].name
 console.log(starter, "is feeling weird.  He's Evolving!!!")
 
-for (let i=0; i<pokemon.length; i++) {
-    if (pokemon[i].number === game.party[0].number) {
-        game.party.splice(0, 1, pokemon[i + 1]);
-        break
-    }
-}
+const currentStarter = pokemon.find(pokemon => pokemon.number === game.party[0].number)
+
+game.party.splice(0, 1, pokemon[currentStarter.number])
+
 console.log(starter, "has evolved into", game.party[0].name)
 
 /*
