@@ -18,11 +18,8 @@ const game = {
       { name: "rare candy", quantity: 99 },
     ],
   }
-  
-//   console.dir(pokemon, { maxArrayLength: null })
-//   console.log(game)
 
-  /*
+/*
 Exercise 3
 1. Add a new property to the `game` object. Let's call it "difficulty".
 2. Choose a value for "difficulty" that you think fits the game. Ex: "Easy", "Med" or "Hard". How would you assign it?
@@ -47,14 +44,12 @@ Solve Exercise 4 here:
 
 const starters = []
 
-    // Adds all availiable starters to the starters array
 pokemon.forEach(element => {
     if (element.starter) {
         starters.push(element)
     }
 });
 
-    // Adds a random starter from starters array to players party.  Can change to selection later
 game.party.push(starters[Math.floor(Math.random() * starters.length)]) 
 
 console.log(`Greetings trainer!  You have chosen ${game.party[0].name} to accompany you on your adventure!`)
@@ -157,15 +152,13 @@ with an array of objects, the splice() array method is ideal for replacing one e
 
 Solve Exercise 7 here:
 */
+
 const starterIdx = game.party.indexOf(game.party.find(pokemon => pokemon.starter === true))
-const starter = game.party[starterIdx].name
-console.log(starter, "is feeling weird.  He's Evolving!!!")
-
+const starterName = game.party[starterIdx].name
+console.log(starterName, "is feeling weird.  He's Evolving!!!")
 const currentStarter = pokemon.find(pokemon => pokemon.number === game.party[starterIdx].number)
-
 game.party.splice(starterIdx, 1, pokemon[currentStarter.number])
-
-console.log(starter, "has evolved into", game.party[starterIdx].name)
+console.log(starterName, "has evolved into", game.party[starterIdx].name)
 
 /*
 Exercise 8
@@ -215,7 +208,6 @@ Solve Exercise 10 here:
 game.catchPokemon = function(pokemonObj) {
     game.party.push(pokemonObj)
     console.log(`You caught a ${pokemonObj.name}!`)
-
 }
 
 game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
@@ -358,7 +350,6 @@ Solve Exercise 17 here:
 */
 
 game.party.sort((a, b) => b.hp - a.hp)
-// console.log(game.party)
 
 /*
 Exercise 18
@@ -425,9 +416,6 @@ game.collection.forEach(pokemon => {
     console.log(`You have a ${pokemon.hp} HP ${pokemon.name} in your collection`)
 })
 
-//console.log(game)
-
-
 /*
 Exercise 19
 Copy the `catchPokemon` method that you just wrote above, and paste it below. The time has come to make it so that we cannot catch a Pokemon when we do not have any pokeballs to catch it with. 
@@ -477,7 +465,6 @@ If there is not a match, then return a string noting that the selected Pokemon d
 
 Solve Exercise 20 here:
 */
-
 
 game.catchPokemon = function(name) {
     const pokemonName = name.toLowerCase()
@@ -542,6 +529,7 @@ Log the object when it's constructed.
 
 Solve Exercise 21 here:
 */
+
 pokemon.forEach(element => {
     if (!pokemonTypes.includes(element.type))
         pokemonTypes.push(element.type)
@@ -554,7 +542,6 @@ for (let i=0; i<pokemon.length; i++) {
     pokemonByType[pokemon[i].type].push(pokemon[i])
 }
 
-
 for (let type in pokemonByType) {
     console.log('')
     console.log(`-------------------${type.toUpperCase()} pokemon-------------------`)
@@ -562,7 +549,6 @@ for (let type in pokemonByType) {
         console.log(`No. ${pokemonByType[type][pokemon].number}: ${pokemonByType[type][pokemon].name} is a ${pokemonByType[type][pokemon].type} type with an HP of ${pokemonByType[type][pokemon].hp}`)
     }
 }
-
 
 console.log(``)
 console.log(``)
