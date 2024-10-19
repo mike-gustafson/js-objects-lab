@@ -24,14 +24,12 @@ Exercise 3
 1. Add a new property to the `game` object. Let's call it "difficulty".
 2. Choose a value for "difficulty" that you think fits the game. Ex: "Easy", "Med" or "Hard". How would you assign it?
 
-
-Solve Exercise 3 here:
+Solve Exercise 3 here: 
 */
 
 const difficultyOptions = ["Easy", "Medium", "Hard"]
 let difficultySelected = 1
 game.difficulty = difficultyOptions[difficultySelected]
-
 
 /*
 Exercise 4
@@ -237,7 +235,6 @@ game.catchPokemon = function(pokemonObj) {
 
 game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
 
-
 /*
 Exercise 12
 1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
@@ -431,7 +428,7 @@ Solve Exercise 19 here:
 game.catchPokemon = function(pokemonObj) {
     const pokeballs = game.items.find(i => i.name === "pokeball")
 
-    if (pokeballs && pokeballs.quantity > 0){
+    if (pokeballs && (pokeballs.quantity > 0)){
         if (game.party.length <= 6) {
             game.party.push(pokemonObj)    
         } else {
