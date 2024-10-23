@@ -277,13 +277,15 @@ Solve Exercise 13 here:
 
 game.gymStatus = function () {
     const gymTally = {
-        'completed' : 0,
-        'incomplete' : 0
+        completed : 0,
+        incomplete : 0
     }
 
     game.gyms.forEach(gym => {
         if (gym.completed) {
             gymTally.completed++
+        } else {
+            gymTally.incomplete++
         }
     })
 
