@@ -40,14 +40,7 @@ Exercise 4
 Solve Exercise 4 here:
 */
 
-const starters = []
-
-pokemon.forEach(element => {
-    if (element.starter) {
-        starters.push(element)
-    }
-});
-
+const starters = pokemon.filter(pokemon => pokemon.starter);
 game.party.push(starters[Math.floor(Math.random() * starters.length)]) 
 
 console.log(`Greetings trainer!  You have chosen ${game.party[0].name} to accompany you on your adventure!`)
@@ -108,7 +101,7 @@ for (let i=1; i<partyPokemonTypes.length; i++) {
         }
     });
     game.party.push(possiblePartyMembers[Math.floor(Math.random() * possiblePartyMembers.length)])
-    }
+}
 
 const partyMembers = []
 game.party.forEach(element => {
@@ -535,6 +528,7 @@ pokemonTypes.forEach(element => pokemonByType[element] = [])
 for (let i=0; i<pokemon.length; i++) {
     pokemonByType[pokemon[i].type].push(pokemon[i])
 }
+
 
 for (let type in pokemonByType) {
     console.log('')
