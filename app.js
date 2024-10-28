@@ -366,19 +366,19 @@ game.collection = []
 
 game.catchPokemon = function(pokemonObj) {
 
-        if (game.party.length < 6) {
-            game.party.push(pokemonObj)    
+        if (this.party.length < 6) {
+            this.party.push(pokemonObj)    
         } else {
-            game.party.sort((a, b) => b.hp - a.hp)
-            if (game.party[5].hp < pokemonObj.hp) {
-                game.collection.push(game.party[5])
-                game.party[5] = pokemonObj
+            this.party.sort((a, b) => b.hp - a.hp)
+            if (this.party[5].hp < pokemonObj.hp) {
+                this.collection.push(game.party[5])
+                this.party[5] = pokemonObj
             } else {
-            game.collection.push(pokemonObj)
+            this.collection.push(pokemonObj)
             }
         }
 
-        game.items.forEach(item =>{
+        this.items.forEach(item =>{
             if (item.name === "pokeball") {
                 item.quantity--
                 console.log(`You caught a ${pokemonObj.name}! You have ${item.quantity} pokeballs left.`)
@@ -386,14 +386,6 @@ game.catchPokemon = function(pokemonObj) {
         })
 }
 
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
-game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)]) // gives us enough pokemon to put one in collection AND run out of pokeballs
 
 game.party.forEach(pokemon => {
     console.log(`You have a ${pokemon.hp} HP ${pokemon.name} in your party`)
@@ -416,31 +408,34 @@ Solve Exercise 19 here:
 
 
 game.catchPokemon = function(pokemonObj) {
-    const pokeballs = game.items.find(i => i.name === "pokeball")
+    const pokeballs = this.items.find(i => i.name === "pokeball")
 
     if (pokeballs && (pokeballs.quantity > 0)){
-        if (game.party.length <= 6) {
-            game.party.push(pokemonObj)    
+        if (this.party.length <= 6) {
+            this.party.push(pokemonObj)    
         } else {
-            game.party.sort((a, b) => b.hp - a.hp)
-            if (game.party[6].hp < pokemonObj.hp) {
-                game.collection.push(game.party[6])
-                game.party[6] = pokemonObj
+            this.party.sort((a, b) => b.hp - a.hp)
+            if (this.party[5].hp < pokemonObj.hp) {
+                this.collection.push(game.party[5])
+                this.party[5] = pokemonObj
             } else {
-            game.collection.push(pokemonObj)
+            this.collection.push(pokemonObj)
             }
         }
-
-        game.items.forEach(item =>{
-            if (item.name === "pokeball") {
-                item.quantity--
-                console.log(`You caught a ${pokemonObj.name}! You have ${item.quantity} pokeballs left.`)
-            }
-        })
+        pokeballs.quantity--
     } else {
         console.log(`You're out of pokeballs, you can't catch 'em all right now`)
     }
 }
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
+game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)]) // gives us enough pokemon to put one in collection AND run out of pokeballs
+
 
 /*
 Exercise 20
@@ -455,9 +450,9 @@ Solve Exercise 20 here:
 
 game.catchPokemon = function(name) {
     const pokemonName = name.toLowerCase()
-    const pokemonObj = pokemon.find(i => i.name.toLowerCase() === pokemonName)
+    const pokemonObj = pokemon.find(pokemon => pokemon.name.toLowerCase() === pokemonName)
+    const pokeballs = game.items.find(item => item.name === "pokeball")
 
-    const pokeballs = game.items.find(i => i.name === "pokeball")
     if (pokemonObj) {
         console.log(`You requested information for "${name}":`)
         if (pokeballs && pokeballs.quantity > 0){
@@ -465,20 +460,14 @@ game.catchPokemon = function(name) {
                 game.party.push(pokemonObj)    
             } else {
                 game.party.sort((a, b) => b.hp - a.hp)
-                if (game.party[6].hp < pokemonObj.hp) {
-                    game.collection.push(game.party[6])
-                    game.party[6] = pokemonObj
+                if (game.party[5].hp < pokemonObj.hp) {
+                    game.collection.push(game.party[5])
+                    game.party[5] = pokemonObj
                 } else {
                 game.collection.push(pokemonObj)
                 }
             }
-
-            game.items.forEach(item =>{
-                if (item.name === "pokeball") {
-                    item.quantity--
-                    console.log(`You caught a ${pokemonObj.name}! You have ${item.quantity} pokeballs left.`)
-                }
-            })
+            pokeballs.quantity--        
         } else {
             console.log(`You found a ${pokemonObj.name}, but you're out of pokeballs so you can't catch 'em all right now`)
         }
@@ -547,7 +536,7 @@ console.log(`Like no one ever was`)
 console.log(`You caught them all and passed the test`)
 console.log(`You trained them for the cause`)
 console.log(`You traveled all across the land`)
-console.log(`You search them far and wide`)
+console.log(`You sought them far and wide`)
 console.log(`You taught them and you understand`)
 console.log(`The power that's inside!`)
 console.log(``)
