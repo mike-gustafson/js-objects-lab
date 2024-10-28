@@ -372,16 +372,14 @@ Solve Exercise 18 here:
 game.collection = []
 
 game.catchPokemon = function(pokemonObj) {
-    const pokeballs = game.items.find(i => i.name === "pokeball")
 
-    if (pokeballs && pokeballs.quantity > 0){
-        if (game.party.length <= 6) {
+        if (game.party.length < 6) {
             game.party.push(pokemonObj)    
         } else {
             game.party.sort((a, b) => b.hp - a.hp)
-            if (game.party[6].hp < pokemonObj.hp) {
-                game.collection.push(game.party[6])
-                game.party[6] = pokemonObj
+            if (game.party[5].hp < pokemonObj.hp) {
+                game.collection.push(game.party[5])
+                game.party[5] = pokemonObj
             } else {
             game.collection.push(pokemonObj)
             }
@@ -393,9 +391,6 @@ game.catchPokemon = function(pokemonObj) {
                 console.log(`You caught a ${pokemonObj.name}! You have ${item.quantity} pokeballs left.`)
             }
         })
-    } else {
-        console.log(`You're out of pokeballs, you can't catch 'em all right now`)
-    }
 }
 
 game.catchPokemon(pokemon[Math.floor(Math.random() * pokemon.length)])
